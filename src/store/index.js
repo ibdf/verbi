@@ -17,6 +17,17 @@ export default new Vuex.Store({
     persons: [],
     rules: {},
   },
+  getters: {
+    getTenseByName: (state) => (tenseName) => {
+      for (let tI=0; tI < state.tenses.length; tI++) {        
+        for (let i=0; i < state.tenses[tI].tenses.length; i++) {
+          if (state.tenses[tI].tenses[i].name === tenseName) {            
+            return state.tenses[tI].tenses[i];
+          }           
+        }
+      }
+    },
+  },
   mutations: {
     setSettings(state, settings) {
       state = Object.assign(state, settings);
@@ -83,7 +94,7 @@ export default new Vuex.Store({
       
       let response = [];
 
-      let conjugate = 'one'; //one, tense
+      let conjugate = 'all'; //one, tense
 
       if (conjugate === 'one') {
         let verb = verbs[Math.floor(Math.random() * verbs.length)];
@@ -106,28 +117,51 @@ export default new Vuex.Store({
     async conjugate({ state, dispatch }, { verb, tense, person }) {
       const tenseFunc = 'conj' + tense.name.split('-').map(tense => tense.charAt(0).toUpperCase() + tense.slice(1)).join('');
 
+      console.log(tenseFunc, '<------');
+
       const tenseMap = [
         'conjTempiCompostiPassatoProssimo',
+        'conjTempiCompostiTrapassatoProssimo',
+        'conjTempiCompostiTrapassatoRemoto',
+        'conjTempiCompostiFuturoAnteriore',
+        'conjCongiuntivoPassato',
+        'conjCongiuntivoTrapassato',
       ];
 
       let response = [];      
 
-      response.push(person.label);
+      response.person = person;
+
+      if (tense.name.startsWith('congiuntivo')) {
+        response.prefix = 'Che';
+      }
 
       if (tenseMap.includes(tenseFunc)) {
-        response.push(await dispatch(tenseFunc, { verb, tense, person }));        
+        response.auxiliary = await dispatch(tenseFunc, { verb, tense, person });        
       }
       
       const isIrregular = await dispatch('checkIrregularCases', { verb, tense, person });
 
       if (isIrregular) {
-        response.push(isIrregular);
+        response.verb = isIrregular;
       } else {
         console.log('is NOT irregular case');
-        response.push(`${verb.base}${state.rules[verb.infinitive][tense.name][person.name]}`);
+        let ending = '';
+        
+        if (typeof state.rules[verb.infinitive][tense.name] === 'string') {
+          ending = state.rules[verb.infinitive][tense.name];
+        } else {
+          if (typeof state.rules[verb.infinitive][tense.name][person.name] === 'string') {
+            ending = state.rules[verb.infinitive][tense.name][person.name];
+          } else {
+            ending = state.rules[verb.infinitive][tense.name][person.name].join(' /');
+          }
+        }
+        
+        response.verb = `${verb.base}${ending}`;
       }
       
-      console.log(response, 'response');
+      console.log(response, 'conjugate response');
 
       return response;
 
@@ -136,12 +170,17 @@ export default new Vuex.Store({
       
       let response = [];
 
-      tenses.forEach(tense => {
-        verbs.forEach(async verb => {
-          await asyncForEach(state.persons, async (person) => {
-            response.push(await dispatch('conjugate', { verb, tense, person }));
+      await asyncForEach(tenses, async (tense) => {        
+        let conjInfo = {
+          tense: tense,
+          conjugation: [],
+        };
+        await asyncForEach(verbs, async (verb) => {
+          await asyncForEach(state.persons, async (person) => {            
+            conjInfo['conjugation'].push(await dispatch('conjugate', { verb, tense, person }));
           });
         });
+        response.push(conjInfo);
       });
 
       console.log('conjugateAll response', response);
@@ -149,23 +188,34 @@ export default new Vuex.Store({
       return response;
 
     },
-    conjTempiCompostiPassatoProssimo ({ state }, { person }) {
+    async getAuxiliaryVerb ({ state, dispatch, getters }, { person, tense }) {
       let auxiliary = state.verbs.find(verb => `${verb.base}${verb.infinitive}` === verb.auxiliary);
-      return auxiliary.irregularCases['indicativo-presente'][person.name];      
+      let auxiliaryInfo = { 
+        verb: auxiliary,
+        tense: getters['getTenseByName'](tense),
+        person,
+      };
+      let auxiliaryConjugate = await dispatch('conjugate', auxiliaryInfo);
+      console.log(auxiliaryConjugate.verb, '<--------');
+      return auxiliaryConjugate.verb;
     },
-    checkTrapassatoProssimo ({ state }, { tense, person }) {
-      console.log('here');
-      let response = [];
-      if (tense.name === 'trapassato-prossimo') {
-        console.log('is trapassato-prossimo');
-        let auxiliary = state.verbs.find(verb => `${verb.base}${verb.infinitive}` === verb.auxiliary);
-        if (auxiliary) {
-          console.log('auxiliary',auxiliary );
-          response.push(auxiliary.irregularCases.imperfetto[person.name]);
-          console.log('auxiliary verb', response);
-        }
-      }
-      return response;
+    async conjTempiCompostiPassatoProssimo ({ dispatch }, { person }) {
+      return await dispatch('getAuxiliaryVerb', { person, tense: 'indicativo-presente' });      
+    },
+    async conjTempiCompostiTrapassatoProssimo ({ dispatch }, { person }) {
+      return await dispatch('getAuxiliaryVerb', { person, tense: 'indicativo-imperfetto' });      
+    },
+    async conjTempiCompostiTrapassatoRemoto ({ dispatch }, { person }) {
+      return await dispatch('getAuxiliaryVerb', { person, tense: 'indicativo-passato-remoto' });      
+    },
+    async conjTempiCompostiFuturoAnteriore ({ dispatch }, { person }) {
+      return await dispatch('getAuxiliaryVerb', { person, tense: 'indicativo-futuro-semplice' });      
+    },
+    async conjCongiuntivoPassato ({ dispatch }, { person }) {
+      return await dispatch('getAuxiliaryVerb', { person, tense: 'congiuntivo-presente' });      
+    },
+    async conjCongiuntivoTrapassato ({ dispatch }, { person }) {
+      return await dispatch('getAuxiliaryVerb', { person, tense: 'congiuntivo-imperfetto' });      
     },
     checkIrregularCases ({ state }, { verb, tense, person }) {      
       if (verb.irregularCases && verb.irregularCases[tense.name] && verb.irregularCases[tense.name][person.name]) {

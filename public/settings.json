@@ -14,11 +14,61 @@
           "io": "ho",
           "tu": "hai",
           "lui": "ha",
-          "noi": "abbiamo",
-          "voi": "avete",
+          "noi": "abbiamo",          
           "loro": "hanno"
+        },
+        "indicativo-passato-remoto": {
+          "io": "ebbi",
+          "lui": "ebbe",          
+          "loro": "ebbero"
+        },
+        "indicativo-futuro-semplice": {
+          "io": "avrò",
+          "tu": "avrai",
+          "lui": "avrà",
+          "noi": "avremo",          
+          "voi": "avrete",
+          "loro": "avranno"
+        },
+        "congiuntivo-presente": {
+          "io": "abbia",
+          "tu": "abbia",
+          "lui": "abbia",
+          "noi": "abbiamo",          
+          "voi": "abbiate",
+          "loro": "abbiano"
         }
       }
+    },
+    {
+      "base": "cred",
+      "infinitive": "ere",
+      "auxiliary": "avere",
+      "translation": {
+        "english": [
+          "to believe"
+        ]
+      }      
+    },
+    {
+      "base": "parl",
+      "infinitive": "are",
+      "auxiliary": "avere",
+      "translation": {
+        "english": [
+          "to speak"
+        ]
+      }      
+    },
+    {
+      "base": "sent",
+      "infinitive": "ire",
+      "auxiliary": "avere",
+      "translation": {
+        "english": [
+          "to hear, to feel"
+        ]
+      }      
     },
     {
       "base": "mangi",
@@ -30,11 +80,11 @@
         ]
       },
       "irregularCases": {
-        "presente": {
+        "indicativo-presente": {
           "tu": "mangi",
           "noi": "mangiamo"
         },
-        "futuro-semplice": {
+        "indicativo-futuro-semplice": {
           "io": "mangerò",
           "tu": "mangerai",
           "lui": "mangerà",
@@ -83,14 +133,6 @@
         "voi": "avate",
         "loro": "avano"
       },
-      "tempi-composti-passato-prossimo": {
-        "io": "ato",
-        "tu": "ato",
-        "lui": "ato",
-        "noi": "ato",
-        "voi": "ato",
-        "loro": "ato"
-      },
       "indicativo-passato-remoto": {
         "io": "ai",
         "tu": "asti",
@@ -98,22 +140,6 @@
         "noi": "ammo",
         "voi": "aste",
         "loro": "arono"
-      },
-      "indicativo-trapassato-prossimo": {
-        "io": "ato",
-        "tu": "ato",
-        "lui": "ato",
-        "noi": "ato",
-        "voi": "ato",
-        "loro": "ato"
-      },
-      "indicativo-trapassato-remoto": {
-        "io": "ato",
-        "tu": "ato",
-        "lui": "ato",
-        "noi": "ato",
-        "voi": "ato",
-        "loro": "ato"
       },
       "indicativo-futuro-semplice": {
         "io": "erò",
@@ -123,14 +149,28 @@
         "voi": "erete",
         "loro": "eranno"
       },
-      "indicativo-futuro-anteriore": {
-        "io": "ato",
-        "tu": "ato",
-        "lui": "ato",
-        "noi": "ato",
-        "voi": "ato",
-        "loro": "ato"
-      }
+      "tempi-composti-passato-prossimo": "ato",
+      "tempi-composti-trapassato-prossimo": "ato",
+      "tempi-composti-trapassato-remoto": "ato",
+      "tempi-composti-futuro-anteriore": "ato",
+      "congiuntivo-presente": {
+        "io": "i",
+        "tu": "i",
+        "lui": "i",
+        "noi": "iamo",
+        "voi": "iate",
+        "loro": "ino"
+      },
+      "congiuntivo-imperfetto": {
+        "io": "assi",
+        "tu": "assi",
+        "lui": "asse",
+        "noi": "assimo",
+        "voi": "aste",
+        "loro": "assero"
+      },
+      "congiuntivo-passato": "ato",
+      "congiuntivo-trapassato": "ato"
     },
     "ere": {
       "indicativo-presente": {
@@ -149,29 +189,13 @@
         "voi": "evate",
         "loro": "evano"
       },
-      "tempi-composti-passato-prossimo": {
-        "io": "uto",
-        "tu": "uto",
-        "lui": "uto",
-        "noi": "uto",
-        "voi": "uto",
-        "loro": "uto"
-      },
-      "tempi-composti-trapassato-prossimo": {
-        "io": "uto",
-        "tu": "uto",
-        "lui": "uto",
-        "noi": "uto",
-        "voi": "uto",
-        "loro": "uto"
-      },
-      "tempi-composti-passato-remoto": {
-        "io": "ei",
+      "indicativo-passato-remoto": {
+        "io": ["ei", "etti"],
         "tu": "esti",
-        "lui": "è",
+        "lui": ["é", "ette"],
         "noi": "emmo",
         "voi": "este",
-        "loro": "erono"
+        "loro": ["erono", "ettero"]
       },
       "indicativo-futuro-semplice": {
         "io": "erò",
@@ -181,14 +205,28 @@
         "voi": "erete",
         "loro": "eranno"
       },
-      "tempi-composti-futuro-anteriore": {
-        "io": "uto",
-        "tu": "uto",
-        "lui": "uto",
-        "noi": "uto",
-        "voi": "uto",
-        "loro": "uto"
-      }
+      "tempi-composti-passato-prossimo": "uto",
+      "tempi-composti-trapassato-prossimo": "uto",
+      "tempi-composti-trapassato-remoto": "uto",
+      "tempi-composti-futuro-anteriore": "uto",
+      "congiuntivo-presente": {
+        "io": "a",
+        "tu": "a",
+        "lui": "a",
+        "noi": "iamo",
+        "voi": "iate",
+        "loro": "ano"
+      },
+      "congiuntivo-imperfetto": {
+        "io": "essi",
+        "tu": "essi",
+        "lui": "esse",
+        "noi": "essimo",
+        "voi": "este",
+        "loro": "essero"
+      },
+      "congiuntivo-passato": "uto",
+      "congiuntivo-trapassato": "uto"
     },
     "ire": {
       "indicativo-presente": {
@@ -207,22 +245,44 @@
         "voi": "ivate",
         "loro": "ivano"
       },
-      "indicativo-passato-prossimo": {
-        "io": "ito",
-        "tu": "ito",
-        "lui": "ito",
-        "noi": "ito",
-        "voi": "ito",
-        "loro": "ito"
-      },
       "indicativo-passato-remoto": {
         "io": "ii",
         "tu": "isti",
         "lui": "ì",
         "noi": "immo",
         "voi": "iste",
-        "loro": "irono"
-      }
+        "loro": "irono" 
+      },
+      "indicativo-futuro-semplice": {
+        "io": "irò",
+        "tu": "irai",
+        "lui": "irà",
+        "noi": "iremo",
+        "voi": "irete",
+        "loro": "iranno"
+      },
+      "tempi-composti-passato-prossimo": "ito",
+      "tempi-composti-trapassato-prossimo": "ito",
+      "tempi-composti-trapassato-remoto": "ito",
+      "tempi-composti-futuro-anteriore": "ito",
+      "congiuntivo-presente": {
+        "io": "a",
+        "tu": "a",
+        "lui": "a",
+        "noi": "iamo",
+        "voi": "iate",
+        "loro": "ano"
+      },
+      "congiuntivo-imperfetto": {
+        "io": "issi",
+        "tu": "issi",
+        "lui": "isse",
+        "noi": "issimo",
+        "voi": "iste",
+        "loro": "issero"
+      },
+      "congiuntivo-passato": "ito",
+      "congiuntivo-trapassato": "ito"
     },
     "ire2": {
       "presente": {
@@ -252,6 +312,10 @@
           "label": "imperfetto"
         },        
         {
+          "name": "indicativo-passato-remoto",
+          "label": "passato remoto"
+        },        
+        {
           "name": "indicativo-futuro-semplice",
           "label": "futuro semplice"
         }
@@ -264,10 +328,6 @@
           "name": "tempi-composti-passato-prossimo",
           "label": "passato prossimo"
         },
-        {
-          "name": "tempi-composti-passato-remoto",
-          "label": "passato remoto"
-        },        
         {
           "name": "tempi-composti-trapassato-prossimo",
           "label": "trapassato prossimo"
@@ -286,19 +346,19 @@
       "type": "congiuntivo",
       "tenses": [
         {
-          "name": "presente",
+          "name": "congiuntivo-presente",
           "label": "presente"
         },
         {
-          "name": "passato",
+          "name": "congiuntivo-passato",
           "label": "passato"
         },
         {
-          "name": "imperfetto",
+          "name": "congiuntivo-imperfetto",
           "label": "imperfetto"
         },
         {
-          "name": "trapassato",
+          "name": "congiuntivo-trapassato",
           "label": "trapassato"
         }
       ]
@@ -307,11 +367,11 @@
       "type": "condizionale",
       "tenses": [
         {
-          "name": "presente",
+          "name": "condizionale-presente",
           "label": "presente"
         },
         {
-          "name": "passato",
+          "name": "condizionale-passato",
           "label": "passato"
         }
       ]
