@@ -48,7 +48,7 @@
             v-for="conj in conjInfo.conjugation"
             :key="`${conj.person.name}-${conj.verb}`"
           >
-            {{ conj.prefix }} {{ conj.prefix ? conj.person.name : conj.person.label }} {{ conj.auxiliary }} {{ conj.verb }}
+            {{ conj.prefix }} {{ conj.prefix ? conj.person.name : conj.person.label }} {{ conj.auxiliary }} {{ getVerbGenderNumber(conj).verb }}
           </div>
         </div>
       </div>
@@ -115,6 +115,16 @@ export default {
   methods: {
     infinitiveVerb ({ base, infinitive }) {
       return `${base}${infinitive}`;
+    },
+    getVerbGenderNumber (verb) {      
+      if (verb.auxiliaryInfinitive === 'essere') {
+        if ([ 'noi', 'voi', 'loro' ].includes(verb.person.name)) {
+          verb.verb = verb.verb.replace(/([a,i,u])to$$/, '$1ti/e');
+        } else {
+          verb.verb = `${verb.verb}/a`;
+        }
+      }
+      return verb;
     },
     async start () {
       console.log(this.selectedTenses);

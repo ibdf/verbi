@@ -32,15 +32,25 @@ export default new Vuex.Store({
     setSettings(state, settings) {
       state = Object.assign(state, settings);
     },
+    setVerbs(state, verbs) {
+      state = Vue.set(state, 'verbs', verbs);
+    },
   },
   actions: {
     async fetchVerbsData ({ commit }) {
       try {
         let settings = await axios.get('settings.json');
+        let verbi = await axios.get('verbi.json');
         try {
           if (settings.data) {
             console.log(settings.data);
             commit('setSettings', settings.data);
+          } else {
+            throw ("No data found");
+          }
+          if (verbi.data) {
+            console.log(verbi.data);
+            commit('setVerbs', verbi.data);
           } else {
             throw ("No data found");
           }
@@ -114,7 +124,7 @@ export default new Vuex.Store({
 
       return response;
     },
-    async conjugate({ state, dispatch }, { verb, tense, person }) {
+    async conjugate({ dispatch }, { verb, tense, person }) {
       const tenseFunc = 'conj' + tense.name.split('-').map(tense => tense.charAt(0).toUpperCase() + tense.slice(1)).join('');
 
       console.log(tenseFunc, '<------');
@@ -126,6 +136,7 @@ export default new Vuex.Store({
         'conjTempiCompostiFuturoAnteriore',
         'conjCongiuntivoPassato',
         'conjCongiuntivoTrapassato',
+        'conjCondizionalePassato',
       ];
 
       let response = [];      
@@ -138,34 +149,22 @@ export default new Vuex.Store({
 
       if (tenseMap.includes(tenseFunc)) {
         response.auxiliary = await dispatch(tenseFunc, { verb, tense, person });        
+        response.auxiliaryInfinitive = verb.auxiliary;
       }
       
-      const isIrregular = await dispatch('checkIrregularCases', { verb, tense, person });
+      let verbEnding = await dispatch('getVerbEnding', { verb, tense, person });        
 
-      if (isIrregular) {
-        response.verb = isIrregular;
+      if (!verbEnding.isIrregular) {
+        response.verb = `${verb.base}${verbEnding.ending}`;        
       } else {
-        console.log('is NOT irregular case');
-        let ending = '';
-        
-        if (typeof state.rules[verb.infinitive][tense.name] === 'string') {
-          ending = state.rules[verb.infinitive][tense.name];
-        } else {
-          if (typeof state.rules[verb.infinitive][tense.name][person.name] === 'string') {
-            ending = state.rules[verb.infinitive][tense.name][person.name];
-          } else {
-            ending = state.rules[verb.infinitive][tense.name][person.name].join(' /');
-          }
-        }
-        
-        response.verb = `${verb.base}${ending}`;
+        response.verb = verbEnding.ending;
       }
-      
+
       console.log(response, 'conjugate response');
 
       return response;
 
-    },
+    },    
     async conjugateAllPersons({ dispatch, state }, { verbs, tenses }) {
       
       let response = [];
@@ -188,8 +187,8 @@ export default new Vuex.Store({
       return response;
 
     },
-    async getAuxiliaryVerb ({ state, dispatch, getters }, { person, tense }) {
-      let auxiliary = state.verbs.find(verb => `${verb.base}${verb.infinitive}` === verb.auxiliary);
+    async getAuxiliaryVerb ({ state, dispatch, getters }, { person, tense, auxiliaryVerb }) {
+      let auxiliary = state.verbs.find(verb => `${verb.base}${verb.infinitive}` === auxiliaryVerb);
       let auxiliaryInfo = { 
         verb: auxiliary,
         tense: getters['getTenseByName'](tense),
@@ -199,30 +198,66 @@ export default new Vuex.Store({
       console.log(auxiliaryConjugate.verb, '<--------');
       return auxiliaryConjugate.verb;
     },
-    async conjTempiCompostiPassatoProssimo ({ dispatch }, { person }) {
-      return await dispatch('getAuxiliaryVerb', { person, tense: 'indicativo-presente' });      
+    async conjTempiCompostiPassatoProssimo ({ dispatch }, { verb, person }) {      
+      return await dispatch('getAuxiliaryVerb', { person, tense: 'indicativo-presente', auxiliaryVerb: verb.auxiliary });      
     },
-    async conjTempiCompostiTrapassatoProssimo ({ dispatch }, { person }) {
-      return await dispatch('getAuxiliaryVerb', { person, tense: 'indicativo-imperfetto' });      
+    async conjTempiCompostiTrapassatoProssimo ({ dispatch }, { verb, person }) {
+      return await dispatch('getAuxiliaryVerb', { person, tense: 'indicativo-imperfetto', auxiliaryVerb: verb.auxiliary });      
     },
-    async conjTempiCompostiTrapassatoRemoto ({ dispatch }, { person }) {
-      return await dispatch('getAuxiliaryVerb', { person, tense: 'indicativo-passato-remoto' });      
+    async conjTempiCompostiTrapassatoRemoto ({ dispatch }, { verb, person }) {
+      return await dispatch('getAuxiliaryVerb', { person, tense: 'indicativo-passato-remoto', auxiliaryVerb: verb.auxiliary });      
     },
-    async conjTempiCompostiFuturoAnteriore ({ dispatch }, { person }) {
-      return await dispatch('getAuxiliaryVerb', { person, tense: 'indicativo-futuro-semplice' });      
+    async conjTempiCompostiFuturoAnteriore ({ dispatch }, { verb, person }) {
+      return await dispatch('getAuxiliaryVerb', { person, tense: 'indicativo-futuro-semplice', auxiliaryVerb: verb.auxiliary });      
     },
-    async conjCongiuntivoPassato ({ dispatch }, { person }) {
-      return await dispatch('getAuxiliaryVerb', { person, tense: 'congiuntivo-presente' });      
+    async conjCongiuntivoPassato ({ dispatch }, { verb, person }) {
+      return await dispatch('getAuxiliaryVerb', { person, tense: 'congiuntivo-presente', auxiliaryVerb: verb.auxiliary });      
     },
-    async conjCongiuntivoTrapassato ({ dispatch }, { person }) {
-      return await dispatch('getAuxiliaryVerb', { person, tense: 'congiuntivo-imperfetto' });      
+    async conjCongiuntivoTrapassato ({ dispatch }, { verb, person }) {
+      return await dispatch('getAuxiliaryVerb', { person, tense: 'congiuntivo-imperfetto', auxiliaryVerb: verb.auxiliary });      
     },
-    checkIrregularCases ({ state }, { verb, tense, person }) {      
-      if (verb.irregularCases && verb.irregularCases[tense.name] && verb.irregularCases[tense.name][person.name]) {
-        console.log('is irregular case');
-        return `${verb.irregularCases[tense.name][person.name]}`;
-      } 
-      return false;
+    async conjCondizionalePassato ({ dispatch }, { verb, person }) {
+      return await dispatch('getAuxiliaryVerb', { person, tense: 'condizionale-presente', auxiliaryVerb: verb.auxiliary });      
+    },
+    getVerbEnding ({ state }, { verb, tense, person }) {
+      let ending = '';
+      let isIrregular = false;
+      
+      let tenseName = state.rules[verb.infinitive][tense.name];
+            
+      //If has ireggular tense, use it
+      if (verb.irregularCases && verb.irregularCases[tense.name] && (verb.irregularCases[tense.name][person.name] || typeof verb.irregularCases[tense.name] === "string" || Array.isArray(verb.irregularCases[tense.name]))) {
+        tenseName = verb.irregularCases[tense.name];
+        isIrregular = true;
+      }
+
+      //Ending exception for Condizionale Presente
+      if (tense.name === 'condizionale-presente' && !isIrregular) {
+        let tempInfinitive = verb.infinitive;
+        if (verb.infinitive === 'are') {
+          tempInfinitive = 'ere';
+        }
+        ending = `${tempInfinitive.slice(0, -1)}${state.rules[verb.infinitive][tense.name][person.name]}`;        
+      } else {
+
+        //If String then ending is the same for all persons        
+        if (typeof tenseName === 'string') {
+          ending = tenseName;
+        } else {
+          //Else ending changes per person            
+          if (typeof tenseName[person.name] === 'string') {
+            //has one ending
+            ending = tenseName[person.name];
+          }else if (Array.isArray(tenseName)) {
+            //Has alternative verb
+            ending = tenseName.join(' / ');
+          } else {
+            //Has alternative verb ending
+            ending = tenseName[person.name].join(' / ');
+          }
+        }
+      }
+      return { isIrregular, ending };
     },
   },
   modules: {

@@ -1,0 +1,938 @@
+[
+  {
+    "base": "and",
+    "infinitive": "are",
+    "auxiliary": "essere",
+    "translation": {
+      "english": [
+        "to go"
+      ]
+    },
+    "irregularCases": {
+      "indicativo-presente": {
+        "io": "vado",
+        "tu": "vai",
+        "lui": "va",                
+        "loro": "vanno"
+      },
+      "indicativo-futuro-semplice": {
+        "io": "andrò",
+        "tu": "andrai",
+        "lui": "andrà",
+        "noi": "andremo",          
+        "voi": "andrete",
+        "loro": "andranno"
+      },
+      "congiuntivo-presente": {
+        "io": "vada",
+        "tu": "vada",
+        "lui": "vada",        
+        "loro": "vadano"
+      },
+      "condizionale-presente": {
+        "io": "andrei",
+        "tu": "andresti",
+        "lui": "andrebbe",
+        "noi": "andremmo",          
+        "voi": "andreste",
+        "loro": "andrebbero"
+      }
+    }
+  },
+  {
+    "base": "arriv",
+    "infinitive": "are",
+    "auxiliary": "essere",
+    "translation": {
+      "english": [
+        "to arrive"
+      ]
+    }
+  },
+  {
+    "base": "ess",
+    "infinitive": "ere",
+    "auxiliary": "essere",
+    "translation": {
+      "english": [
+        "to be"
+      ]
+    },
+    "irregularCases": {
+      "indicativo-presente": {
+        "io": "sono",
+        "tu": "sei",
+        "lui": "è",  
+        "noi": "siamo",
+        "voi": "siete",
+        "loro": "sono"
+      },
+      "indicativo-imperfetto": {
+        "io": "ero",
+        "tu": "eri",
+        "lui": "era",  
+        "noi": "eravamo",
+        "voi": "eravate",
+        "loro": "erano"
+      },
+      "indicativo-passato-remoto": {
+        "io": "fui",
+        "tu": "fosti",
+        "lui": "fu",  
+        "noi": "fummo",
+        "voi": "foste",
+        "loro": "furono"
+      },
+      "indicativo-futuro-semplice": {
+        "io": "sarò",
+        "tu": "sarai",
+        "lui": "sarà",  
+        "noi": "saremo",
+        "voi": "sarete",
+        "loro": "saranno"
+      },
+      "tempi-composti-passato-prossimo": {
+        "io": "stato",
+        "tu": "stato",
+        "lui": "stato",  
+        "noi": "stati",
+        "voi": "stati",
+        "loro": "stati"
+      },
+      "tempi-composti-trapassato-prossimo": {
+        "io": "stato",
+        "tu": "stato",
+        "lui": "stato",  
+        "noi": "stati",
+        "voi": "stati",
+        "loro": "stati"
+      },
+      "tempi-composti-trapassato-remoto": {
+        "io": "stato",
+        "tu": "stato",
+        "lui": "stato",  
+        "noi": "stati",
+        "voi": "stati",
+        "loro": "stati"
+      },
+      "tempi-composti-futuro-anteriore": {
+        "io": "stato",
+        "tu": "stato",
+        "lui": "stato",  
+        "noi": "stati",
+        "voi": "stati",
+        "loro": "stati"
+      },
+      "congiuntivo-presente": {
+        "io": "sia",
+        "tu": "sia",
+        "lui": "sia",  
+        "noi": "siamo",
+        "voi": "siate",
+        "loro": "siano"
+      },
+      "congiuntivo-imperfetto": {
+        "io": "fossi",
+        "tu": "fossi",
+        "lui": "fosse",  
+        "noi": "fossimo",
+        "voi": "foste",
+        "loro": "fossero"
+      },
+      "congiuntivo-passato": {
+        "io": "stato",
+        "tu": "stato",
+        "lui": "stato",  
+        "noi": "stati",
+        "voi": "stati",
+        "loro": "stati"
+      },
+      "congiuntivo-trapassato": {
+        "io": "stato",
+        "tu": "stato",
+        "lui": "stato",  
+        "noi": "stati",
+        "voi": "stati",
+        "loro": "stati"
+      },
+      "condizionale-presente": {
+        "io": "sarei",
+        "tu": "saresti",
+        "lui": "sarebbe",  
+        "noi": "saremmo",
+        "voi": "sareste",
+        "loro": "sarebbero"
+      }
+    }
+  },
+  {
+    "base": "av",
+    "infinitive": "ere",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to have"
+      ]
+    },
+    "irregularCases": {
+      "indicativo-presente": {
+        "io": "ho",
+        "tu": "hai",
+        "lui": "ha",
+        "noi": "abbiamo",          
+        "loro": "hanno"
+      },
+      "indicativo-passato-remoto": {
+        "io": "ebbi",
+        "lui": "ebbe",          
+        "loro": "ebbero"
+      },
+      "indicativo-futuro-semplice": {
+        "io": "avrò",
+        "tu": "avrai",
+        "lui": "avrà",
+        "noi": "avremo",          
+        "voi": "avrete",
+        "loro": "avranno"
+      },
+      "congiuntivo-presente": {
+        "io": "abbia",
+        "tu": "abbia",
+        "lui": "abbia",
+        "noi": "abbiamo",          
+        "voi": "abbiate",
+        "loro": "abbiano"
+      },
+      "condizionale-presente": {
+        "io": "avrei",
+        "tu": "avresti",
+        "lui": "avrebbe",
+        "noi": "avremmo",          
+        "voi": "avreste",
+        "loro": "avrebbero"
+      }
+    }
+  },
+  {
+    "base": "cred",
+    "infinitive": "ere",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to believe"
+      ]
+    }      
+  },
+  {
+    "base": "parl",
+    "infinitive": "are",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to speak"
+      ]
+    }      
+  },
+  {
+    "base": "sent",
+    "infinitive": "ire",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to hear, to feel"
+      ]
+    }      
+  },
+  {
+    "base": "port",
+    "infinitive": "are",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to bring"
+      ]
+    }
+  },
+  {
+    "base": "ved",
+    "infinitive": "ere",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to see"
+      ]
+    },
+    "irregularCases": {
+      "indicativo-passato-remoto": {
+        "io": "vidi",
+        "lui": "vide",
+        "loro": "videro"
+      },
+      "indicativo-futuro-semplice": {
+        "io": "vedrò",
+        "tu": "vedrai",
+        "lui": "vedrà",                
+        "noi": "vedremo",
+        "voi": "vedrete",
+        "loro": "vedranno"
+      },
+      "tempi-composti-passato-prossimo": [
+        "visto",
+        "veduto"
+      ],
+      "tempi-composti-trapassato-prossimo": [
+        "visto",
+        "veduto"
+      ],
+      "tempi-composti-trapassato-remoto": [
+        "visto",
+        "veduto"
+      ],
+      "tempi-composti-futuro-anteriore": [
+        "visto",
+        "veduto"
+      ],
+      "congiuntivo-passato": [
+        "visto",
+        "veduto"
+      ],
+      "congiuntivo-trapassato": [
+        "visto",
+        "veduto"
+      ],
+      "condizionale-presente": {
+        "io": "vedrei",
+        "tu": "vedresti",
+        "lui": "vedrebbe",                
+        "noi": "vedremmo",
+        "voi": "vedreste",
+        "loro": "vedrebbero"
+      },
+      "condizionale-passato": [
+        "visto",
+        "veduto"
+      ]
+    }
+  },
+  {
+    "base": "cambi",
+    "infinitive": "are",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to change"
+      ]
+    },
+    "irregularCases": {
+      "indicativo-presente": {
+        "tu": "cambi",
+        "noi": "cambiamo"
+      },
+      "congiuntivo-presente": {
+        "io": "cambi",
+        "tu": "cambi",
+        "lui": "cambi",                
+        "noi": "cambiamo",
+        "voi": "cambiate",
+        "loro": "cambino"
+      }
+    }
+  },
+  {
+    "base": "chied",
+    "infinitive": "ere",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to ask"
+      ]
+    },
+    "irregularCases": {
+      "indicativo-passato-remoto": {
+        "io": "chiesi",
+        "lui": "chiese",
+        "loro": "chiesero"
+      },
+      "tempi-composti-passato-prossimo": "chiesto",
+      "tempi-composti-trapassato-prossimo": "chiesto",
+      "tempi-composti-trapassato-remoto": "chiesto",
+      "tempi-composti-futuro-anteriore": "chiesto",
+      "congiuntivo-passato": "chiesto",
+      "congiuntivo-trapassato": "chiesto",
+      "condizionale-passato": "chiesto"
+    }
+  },
+  {
+    "base": "d",
+    "infinitive": "are",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to give"
+      ]
+    },
+    "irregularCases": {
+      "indicativo-presente": {        
+        "tu": "dai",
+        "lui": "dà",                
+        "loro": "danno"
+      },
+      "indicativo-passato-remoto": {
+        "io": [
+          "diedi", 
+          "detti"
+        ],
+        "tu": "desti",
+        "lui": [
+          "diede",
+          "dette"
+        ],
+        "noi": "demmo",
+        "voi": "deste",
+        "loro": [
+          "diedero",
+          "dettero"
+        ]
+      },
+      "indicativo-futuro-semplice": {
+        "io": "darò",
+        "tu": "darai",
+        "lui": "darà",   
+        "noi": "daremo",
+        "voi": "darete",
+        "loro": "daranno"
+      },
+      "congiuntivo-presente": {
+        "io": "dia",
+        "tu": "dia",
+        "lui": "dia",           
+        "loro": "diano"
+      },
+      "congiuntivo-imperfetto": {
+        "io": "dessi",
+        "tu": "dessi",
+        "lui": "desse",   
+        "noi": "dessimo",
+        "voi": "deste",
+        "loro": "dessero"
+      },
+      "condizionale-presente": {
+        "io": "darei",
+        "tu": "daresti",
+        "lui": "darebbe",   
+        "noi": "daremmo",
+        "voi": "dareste",
+        "loro": "darebbero"
+      }
+    }
+  },
+  {
+    "base": "d",
+    "infinitive": "ire",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to say"
+      ]
+    },
+    "irregularCases": {
+      "indicativo-presente": {
+        "io": "dico",
+        "tu": "dici",
+        "lui": "dice",
+        "noi": "diciamo",        
+        "loro": "dicono"
+      },
+      "indicativo-imperfetto": {
+        "io": "dicevo",
+        "tu": "dicevi",
+        "lui": "diceva",
+        "noi": "dicevamo",
+        "voi": "dicevate",
+        "loro": "dicevano"
+      },
+      "indicativo-passato-remoto": {
+        "io": "dissi",
+        "tu": "dicesti",
+        "lui": "disse",
+        "noi": "dicemmo",
+        "voi": "diceste",
+        "loro": "dissero"
+      },
+      "tempi-composti-passato-prossimo": "detto",
+      "tempi-composti-trapassato-prossimo": "detto",
+      "tempi-composti-trapassato-remoto": "detto",
+      "tempi-composti-futuro-anteriore": "detto",
+      "congiuntivo-presente": {
+        "io": "dica",
+        "tu": "dica",
+        "lui": "dica", 
+        "noi": "diciamo",
+        "voi": "diciate",          
+        "loro": "dicano"
+      },
+      "congiuntivo-imperfetto": {
+        "io": "dicessi",
+        "tu": "dicessi",
+        "lui": "dicesse",   
+        "noi": "dicessimo",
+        "voi": "diceste",
+        "loro": "dicessero"
+      },
+      "congiuntivo-passato": "detto",
+      "congiuntivo-trapassato": "detto",
+      "condizionale-passato": "detto"
+    }
+  },
+  {
+    "base": "dov",
+    "infinitive": "ere",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "have to",
+        "must"
+      ]
+    },
+    "irregularCases": {
+      "indicativo-presente": {
+        "io": [
+          "devo",
+          "debbo"
+        ],
+        "tu": "devi",
+        "lui": "deve",
+        "noi": "dobbiamo",        
+        "loro": [
+          "devono",
+          "debbono"
+        ]
+      },      
+      "indicativo-futuro-semplice": {
+        "io": "dovrò",
+        "tu": "dovrai",
+        "lui": "dovrà",
+        "noi": "dovremo",
+        "voi": "dovrete",
+        "loro": "dovranno"
+      },      
+      "congiuntivo-presente": {
+        "io": [
+          "deva",
+          "debba"
+        ],
+        "tu": [
+          "deva",
+          "debba"
+        ],
+        "lui": [
+          "deva", 
+          "debba"
+        ], 
+        "noi": "dobbiamo",
+        "voi": "dobbiate",          
+        "loro": [
+          "devano",
+          "debbano"
+        ]
+      },
+      "condizionale-presente": {
+        "io": "dovrei",
+        "tu": "dovresti",
+        "lui": "dovrebbe",   
+        "noi": "dovremmo",
+        "voi": "dovreste",
+        "loro": "dovrebbero"
+      }      
+    }
+  },
+  {
+    "base": "f",
+    "infinitive": "are",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to do",
+        "to make"
+      ]
+    },
+    "irregularCases": {
+      "indicativo-presente": {
+        "io": "faccio",
+        "tu": "fai",        
+        "noi": "facciamo",        
+        "loro": "fanno"
+      },
+      "indicativo-imperfetto": {
+        "io": "facevo",
+        "tu": "facevi",
+        "lui": "faceva",
+        "noi": "facevamo",
+        "voi": "facevate",
+        "loro": "facevano"
+      },
+      "indicativo-passato-remoto": {
+        "io": "feci",
+        "tu": "facesti",
+        "lui": "fece",
+        "noi": "facemmo",
+        "voi": "faceste",
+        "loro": "fecero"
+      },      
+      "indicativo-futuro-semplice": {
+        "io": "farò",
+        "tu": "farai",
+        "lui": "farà",
+        "noi": "faremo",
+        "voi": "farete",
+        "loro": "faranno"
+      },
+      "tempi-composti-passato-prossimo": "fatto",
+      "tempi-composti-trapassato-prossimo": "fatto",
+      "tempi-composti-trapassato-remoto": "fatto",
+      "tempi-composti-futuro-anteriore": "fatto",
+      "congiuntivo-presente": {
+        "io": "faccia",
+        "tu": "faccia",
+        "lui": "faccia",
+        "noi": "facciamo",
+        "voi": "facciate",          
+        "loro": "facciano"
+      },
+      "congiuntivo-imperfetto": {
+        "io": "facessi",
+        "tu": "facessi",
+        "lui": "facesse",
+        "noi": "facessimo",
+        "voi": "faceste",          
+        "loro": "facessero"
+      },
+      "congiuntivo-passato": "fatto",
+      "congiuntivo-trapassato": "fatto",
+      "condizionale-presente": {
+        "io": "farei",
+        "tu": "faresti",
+        "lui": "farebbe",   
+        "noi": "faremmo",
+        "voi": "fareste",
+        "loro": "farebbero"
+      },
+      "condizionale-passato": "fatto"
+    }
+  },
+  {
+    "base": "guard",
+    "infinitive": "are",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to watch"
+      ]
+    }
+  },
+  {
+    "base": "lasci",
+    "infinitive": "are",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to leave"
+      ]
+    },
+    "irregularCases": {
+      "indicativo-presente": {        
+        "tu": "lasci",        
+        "noi": "lasciamo"               
+      },
+      "indicativo-futuro-semplice": {
+        "io": "lascerò",
+        "tu": "lascerai",
+        "lui": "lascerà",
+        "noi": "lasceremo",
+        "voi": "lascerete",
+        "loro": "lasceranno"
+      },
+      "congiuntivo-presente": {
+        "io": "lasci",
+        "tu": "lasci",
+        "lui": "lasci",
+        "noi": "lasciamo",
+        "voi": "lasciate",          
+        "loro": "lascino"
+      },
+      "condizionale-presente": {
+        "io": "lascerei",
+        "tu": "lasceresti",
+        "lui": "lascerebbe",   
+        "noi": "lasceremmo",
+        "voi": "lascereste",
+        "loro": "lascerebbero"
+      }
+    }
+  },
+  {
+    "base": "mett",
+    "infinitive": "ere",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to put"
+      ]
+    },
+    "irregularCases": {      
+      "indicativo-passato-remoto": {
+        "io": "misi",        
+        "lui": "mise",                
+        "loro": "misero"
+      },
+      "tempi-composti-passato-prossimo": "messo",
+      "tempi-composti-trapassato-prossimo": "messo",
+      "tempi-composti-trapassato-remoto": "messo",
+      "tempi-composti-futuro-anteriore": "messo",
+      "congiuntivo-passato": "messo",
+      "congiuntivo-trapassato": "messo",      
+      "condizionale-passato": "messo"
+    }
+  },
+  {
+    "base": "pass",
+    "infinitive": "are",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to pass"
+      ]
+    }
+  },
+  {
+    "base": "pens",
+    "infinitive": "are",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to think"
+      ]
+    }
+  },
+  {
+    "base": "pot",
+    "infinitive": "ere",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to be able"
+      ]
+    },
+    "irregularCases": {
+      "indicativo-presente": {        
+        "io": "posso",        
+        "tu": "puoi",
+        "lui": "può",        
+        "noi": "possiamo",
+        "voi": "potete",
+        "loro": "possono"
+      },
+      "indicativo-futuro-semplice": {
+        "io": "potrò",
+        "tu": "potrai",
+        "lui": "potrà",
+        "noi": "potremo",
+        "voi": "potrete",
+        "loro": "potranno"
+      },
+      "congiuntivo-presente": {
+        "io": "possa",
+        "tu": "possa",
+        "lui": "possa",
+        "noi": "possiamo",
+        "voi": "possiate",          
+        "loro": "possano"
+      },
+      "condizionale-presente": {
+        "io": "potrei",
+        "tu": "potresti",
+        "lui": "potrebbe",   
+        "noi": "potremmo",
+        "voi": "potreste",
+        "loro": "potrebbero"
+      }
+    }
+  },
+  {
+    "base": "prend",
+    "infinitive": "ere",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to take",
+        "to get"
+      ]
+    },
+    "irregularCases": {            
+      "indicativo-passato-remoto": {
+        "io": "presi",        
+        "lui": "prese",        
+        "loro": "presero"
+      },            
+      "tempi-composti-passato-prossimo": "preso",
+      "tempi-composti-trapassato-prossimo": "preso",
+      "tempi-composti-trapassato-remoto": "preso",
+      "tempi-composti-futuro-anteriore": "preso",      
+      "congiuntivo-passato": "preso",
+      "congiuntivo-trapassato": "preso",      
+      "condizionale-passato": "preso"
+    }
+  },
+  {
+    "base": "sap",
+    "infinitive": "ere",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to know"
+      ]
+    },
+    "irregularCases": {
+      "indicativo-presente": {        
+        "io": "so",        
+        "tu": "sai",
+        "lui": "sa",        
+        "noi": "sappiamo",
+        "voi": "sapete",
+        "loro": "sanno"
+      },
+      "indicativo-passato-remoto": {        
+        "io": "seppi",                
+        "lui": "seppe",                
+        "loro": "seppero"
+      },
+      "indicativo-futuro-semplice": {
+        "io": "saprò",
+        "tu": "saprai",
+        "lui": "saprà",
+        "noi": "sapremo",
+        "voi": "saprete",
+        "loro": "sapranno"
+      },
+      "congiuntivo-presente": {
+        "io": "sappia",
+        "tu": "sappia",
+        "lui": "sappia",
+        "noi": "sappiamo",
+        "voi": "sappiate",          
+        "loro": "sappiano"
+      },
+      "condizionale-presente": {
+        "io": "saprei",
+        "tu": "sapresti",
+        "lui": "saprebbe",   
+        "noi": "sapremmo",
+        "voi": "sapreste",
+        "loro": "saprebbero"
+      }
+    }
+  },
+  {
+    "base": "sent",
+    "infinitive": "ire",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to hear",
+        "to feel"
+      ]
+    }
+  },
+  {
+    "base": "st",
+    "infinitive": "are",
+    "auxiliary": "essere",
+    "translation": {
+      "english": [
+        "to be"        
+      ]
+    },
+    "irregularCases": {
+      "indicativo-presente": {                
+        "tu": "stai",
+        "loro": "stanno"
+      },
+      "indicativo-passato-remoto": {        
+        "io": "stetti",
+        "tu": "stesti",
+        "lui": "stette",                
+        "noi": "stemmo",                
+        "voi": "steste",
+        "loro": "stettero"
+      },
+      "indicativo-futuro-semplice": {
+        "io": "starò",
+        "tu": "starai",
+        "lui": "starà",
+        "noi": "staremo",
+        "voi": "starete",
+        "loro": "staranno"
+      },
+      "congiuntivo-presente": {
+        "io": "stia",
+        "tu": "stia",
+        "lui": "stia",
+        "noi": "stiamo",
+        "voi": "stiate",          
+        "loro": "stiano"
+      },
+      "congiuntivo-imperfetto": {
+        "io": "stessi",
+        "tu": "stessi",
+        "lui": "stesse",
+        "noi": "stessimo",
+        "voi": "steste",          
+        "loro": "stessero"
+      },
+      "condizionale-presente": {
+        "io": "starei",
+        "tu": "staresti",
+        "lui": "starebbe",   
+        "noi": "staremmo",
+        "voi": "stareste",
+        "loro": "starebbero"
+      }
+    }
+  },
+  {
+    "base": "trov",
+    "infinitive": "are",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to find"        
+      ]
+    }
+  },
+  {
+    "base": "usc",
+    "infinitive": "ire",
+    "auxiliary": "essere",
+    "translation": {
+      "english": [
+        "to go out",
+        "to exit",
+        "to get out"
+      ]
+    },
+    "irregularCases": {
+      "indicativo-presente": {                
+        "io": "esco",
+        "tu": "esci",
+        "lui": "esce",
+        "loro": "escono"
+      },      
+      "congiuntivo-presente": {
+        "io": "esca",
+        "tu": "esca",
+        "lui": "esca",                  
+        "loro": "escano"
+      } 
+    }     
+  }
+]

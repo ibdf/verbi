@@ -1,120 +1,4 @@
 {
-  "verbs": [
-    {
-      "base": "av",
-      "infinitive": "ere",
-      "auxiliary": "avere",
-      "translation": {
-        "english": [
-          "to have"
-        ]
-      },
-      "irregularCases": {
-        "indicativo-presente": {
-          "io": "ho",
-          "tu": "hai",
-          "lui": "ha",
-          "noi": "abbiamo",          
-          "loro": "hanno"
-        },
-        "indicativo-passato-remoto": {
-          "io": "ebbi",
-          "lui": "ebbe",          
-          "loro": "ebbero"
-        },
-        "indicativo-futuro-semplice": {
-          "io": "avrò",
-          "tu": "avrai",
-          "lui": "avrà",
-          "noi": "avremo",          
-          "voi": "avrete",
-          "loro": "avranno"
-        },
-        "congiuntivo-presente": {
-          "io": "abbia",
-          "tu": "abbia",
-          "lui": "abbia",
-          "noi": "abbiamo",          
-          "voi": "abbiate",
-          "loro": "abbiano"
-        }
-      }
-    },
-    {
-      "base": "cred",
-      "infinitive": "ere",
-      "auxiliary": "avere",
-      "translation": {
-        "english": [
-          "to believe"
-        ]
-      }      
-    },
-    {
-      "base": "parl",
-      "infinitive": "are",
-      "auxiliary": "avere",
-      "translation": {
-        "english": [
-          "to speak"
-        ]
-      }      
-    },
-    {
-      "base": "sent",
-      "infinitive": "ire",
-      "auxiliary": "avere",
-      "translation": {
-        "english": [
-          "to hear, to feel"
-        ]
-      }      
-    },
-    {
-      "base": "mangi",
-      "infinitive": "are",
-      "auxiliary": "avere",
-      "translation": {
-        "english": [
-          "to eat"
-        ]
-      },
-      "irregularCases": {
-        "indicativo-presente": {
-          "tu": "mangi",
-          "noi": "mangiamo"
-        },
-        "indicativo-futuro-semplice": {
-          "io": "mangerò",
-          "tu": "mangerai",
-          "lui": "mangerà",
-          "noi": "mangeremo",
-          "voi": "mangerete",
-          "loro": "mangeranno"
-        }
-      }
-    },
-    {
-      "base": "port",
-      "infinitive": "are",
-      "auxiliary": "avere",
-      "translation": {
-        "english": [
-          "to take / to bring"
-        ]
-      }
-    },
-    {
-      "base": "ved",
-      "infinitive": "ere",
-      "auxiliary": "avere",
-      "translation": {
-        "english": [
-          "to eat"
-        ]
-      }
-    }
-  ],
   "rules": {
     "are": {
       "indicativo-presente": {
@@ -170,7 +54,16 @@
         "loro": "assero"
       },
       "congiuntivo-passato": "ato",
-      "congiuntivo-trapassato": "ato"
+      "congiuntivo-trapassato": "ato",
+      "condizionale-presente": {
+        "io": "ei",
+        "tu": "esti",
+        "lui": "ebbe",
+        "noi": "emmo",
+        "voi": "este",
+        "loro": "ebbero"
+      },
+      "condizionale-passato": "ato"
     },
     "ere": {
       "indicativo-presente": {
@@ -226,13 +119,22 @@
         "loro": "essero"
       },
       "congiuntivo-passato": "uto",
-      "congiuntivo-trapassato": "uto"
+      "congiuntivo-trapassato": "uto",
+      "condizionale-presente": {
+        "io": "ei",
+        "tu": "esti",
+        "lui": "ebbe",
+        "noi": "emmo",
+        "voi": "este",
+        "loro": "ebbero"
+      },
+      "condizionale-passato": "uto"
     },
     "ire": {
       "indicativo-presente": {
         "io": "o",
         "tu": "i",
-        "lui": "a",
+        "lui": "e",
         "noi": "iamo",
         "voi": "ite",
         "loro": "ono"
@@ -282,7 +184,16 @@
         "loro": "issero"
       },
       "congiuntivo-passato": "ito",
-      "congiuntivo-trapassato": "ito"
+      "congiuntivo-trapassato": "ito",
+      "condizionale-presente": {
+        "io": "ei",
+        "tu": "esti",
+        "lui": "ebbe",
+        "noi": "emmo",
+        "voi": "este",
+        "loro": "ebbero"
+      },
+      "condizionale-passato": "ito"
     },
     "ire2": {
       "presente": {
@@ -350,13 +261,13 @@
           "label": "presente"
         },
         {
-          "name": "congiuntivo-passato",
-          "label": "passato"
-        },
-        {
           "name": "congiuntivo-imperfetto",
           "label": "imperfetto"
         },
+        {
+          "name": "congiuntivo-passato",
+          "label": "passato"
+        },        
         {
           "name": "congiuntivo-trapassato",
           "label": "trapassato"
