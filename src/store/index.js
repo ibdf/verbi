@@ -16,6 +16,9 @@ export default new Vuex.Store({
     tenses: [],
     persons: [],
     rules: {},
+    currentRun: {
+      verbs: [],
+    },
   },
   getters: {
     getTenseByName: (state) => (tenseName) => {
@@ -27,13 +30,22 @@ export default new Vuex.Store({
         }
       }
     },
+    getCurrentRunVerb (state) {
+      if (state.currentRun && state.currentRun.verbs.length > 0) {
+        return state.currentRun.verbs[Math.floor(Math.random() * state.currentRun.verbs.length)];
+      }
+      return [];
+    },
   },
   mutations: {
     setSettings(state, settings) {
       state = Object.assign(state, settings);
     },
     setVerbs(state, verbs) {
-      state = Vue.set(state, 'verbs', verbs);
+      Vue.set(state, 'verbs', verbs);
+    },
+    setCurrentRunVerbs(state, verbs) {
+      Vue.set(state.currentRun, 'verbs', verbs);
     },
   },
   actions: {
@@ -61,20 +73,14 @@ export default new Vuex.Store({
         console.error(e);
       }
     },
-    async startRun ({ dispatch }, { selectedVerbs, selectedTenses }) {
-      console.log('startRun selectedVerbs', selectedVerbs);
-      console.log('startRun selectedTenses', selectedTenses);
+    async startRun ({ dispatch, commit }, { selectedVerbs, selectedTenses }) {      
       let verbsAndTenses = await dispatch('prepRun', { selectedVerbs, selectedTenses });      
-      let run = await dispatch('makeRun', verbsAndTenses);
-      console.log('run', run);
-      return run;
-    },
-    
+      let run = await dispatch('makeRun', verbsAndTenses);      
+      commit('setCurrentRunVerbs', run);
+      return true;
+    },   
     prepRun ({ state }, { selectedVerbs, selectedTenses }) {
 
-      console.log('prerun has started');
-      console.log('preprun selectedVerbs', selectedVerbs);
-      console.log('preprun selectedTenses', selectedTenses);
       let verbs = selectedVerbs;
       let tenses = selectedTenses;
 
@@ -86,48 +92,37 @@ export default new Vuex.Store({
         tenses = state.tenses;
       }
 
-      console.log('prerun verbs', verbs);
-      console.log('prerun tenses', tenses);
-      console.log('----------------------');
-
       return { 
         'verbs': verbs, 
         'tenses': tenses,
       };
 
     },
-    async makeRun ({ dispatch, state }, { verbs, tenses }) {
-
-      console.log('makeRun has started');
-      console.log('makeRun verbs', verbs);
-      console.log('makeRun tenses', tenses);      
-      
+    async makeRun ({ dispatch }, { verbs, tenses }) {
+    
       let response = [];
 
-      let conjugate = 'all'; //one, tense
+      // let conjugate = 'all'; //one, tense
 
-      if (conjugate === 'one') {
-        let verb = verbs[Math.floor(Math.random() * verbs.length)];
-        console.log('makeRun random verb', verb);
-        let tense = tenses[Math.floor(Math.random() * tenses.length)];
-        console.log('makeRun random tense', tense);
-        console.log('make run conjugate one');
-        let person = state.persons[Math.floor(Math.random() * state.persons.length)];
-        console.log('makeRun random person', person.name);
-        response = await dispatch('conjugate', { verb, tense, person });
-      }
+      // if (conjugate === 'one') {
+      //   let verb = verbs[Math.floor(Math.random() * verbs.length)];
+      //   console.log('makeRun random verb', verb);
+      //   let tense = tenses[Math.floor(Math.random() * tenses.length)];
+      //   console.log('makeRun random tense', tense);
+      //   console.log('make run conjugate one');
+      //   let person = state.persons[Math.floor(Math.random() * state.persons.length)];
+      //   console.log('makeRun random person', person.name);
+      //   response = await dispatch('conjugate', { verb, tense, person });
+      // }
 
-      if (conjugate === 'all') {
-        console.log('makeRun conjugate all');
-        response = await dispatch('conjugateAllPersons', { verbs, tenses });
-      }
+      // if (conjugate === 'all') {        
+      response = await dispatch('conjugateAllPersons', { verbs, tenses });
+      // }
 
       return response;
     },
     async conjugate({ dispatch }, { verb, tense, person }) {
       const tenseFunc = 'conj' + tense.name.split('-').map(tense => tense.charAt(0).toUpperCase() + tense.slice(1)).join('');
-
-      console.log(tenseFunc, '<------');
 
       const tenseMap = [
         'conjTempiCompostiPassatoProssimo',
@@ -160,13 +155,10 @@ export default new Vuex.Store({
         response.verb = verbEnding.ending;
       }
 
-      console.log(response, 'conjugate response');
-
       return response;
 
     },    
-    async conjugateAllPersons({ dispatch, state }, { verbs, tenses }) {
-      
+    async conjugateAllPersons({ dispatch, state }, { verbs, tenses }) {      
       let response = [];
 
       await asyncForEach(tenses, async (tense) => {        
@@ -175,8 +167,9 @@ export default new Vuex.Store({
           conjugation: [],
         };
         await asyncForEach(verbs, async (verb) => {
-          await asyncForEach(state.persons, async (person) => {            
-            conjInfo['conjugation'].push(await dispatch('conjugate', { verb, tense, person }));
+          await asyncForEach(state.persons, async (person) => {
+            let conj = await dispatch('conjugate', { verb, tense, person });
+            conjInfo['conjugation'].push(conj);
           });
         });
         response.push(conjInfo);
@@ -194,34 +187,41 @@ export default new Vuex.Store({
         tense: getters['getTenseByName'](tense),
         person,
       };
-      let auxiliaryConjugate = await dispatch('conjugate', auxiliaryInfo);
-      console.log(auxiliaryConjugate.verb, '<--------');
+      let auxiliaryConjugate = await dispatch('conjugate', auxiliaryInfo);      
       return auxiliaryConjugate.verb;
     },
     async conjTempiCompostiPassatoProssimo ({ dispatch }, { verb, person }) {      
-      return await dispatch('getAuxiliaryVerb', { person, tense: 'indicativo-presente', auxiliaryVerb: verb.auxiliary });      
+      let auxVerb = await dispatch('getAuxiliaryVerb', { person, tense: 'indicativo-presente', auxiliaryVerb: verb.auxiliary });
+      return auxVerb;
     },
     async conjTempiCompostiTrapassatoProssimo ({ dispatch }, { verb, person }) {
-      return await dispatch('getAuxiliaryVerb', { person, tense: 'indicativo-imperfetto', auxiliaryVerb: verb.auxiliary });      
+      let auxVerb = await dispatch('getAuxiliaryVerb', { person, tense: 'indicativo-imperfetto', auxiliaryVerb: verb.auxiliary });      
+      return auxVerb;
     },
     async conjTempiCompostiTrapassatoRemoto ({ dispatch }, { verb, person }) {
-      return await dispatch('getAuxiliaryVerb', { person, tense: 'indicativo-passato-remoto', auxiliaryVerb: verb.auxiliary });      
+      let auxVerb = await dispatch('getAuxiliaryVerb', { person, tense: 'indicativo-passato-remoto', auxiliaryVerb: verb.auxiliary });      
+      return auxVerb;
     },
     async conjTempiCompostiFuturoAnteriore ({ dispatch }, { verb, person }) {
-      return await dispatch('getAuxiliaryVerb', { person, tense: 'indicativo-futuro-semplice', auxiliaryVerb: verb.auxiliary });      
+      let auxVerb = await dispatch('getAuxiliaryVerb', { person, tense: 'indicativo-futuro-semplice', auxiliaryVerb: verb.auxiliary });
+      return auxVerb;      
     },
     async conjCongiuntivoPassato ({ dispatch }, { verb, person }) {
-      return await dispatch('getAuxiliaryVerb', { person, tense: 'congiuntivo-presente', auxiliaryVerb: verb.auxiliary });      
+      let auxVerb = await dispatch('getAuxiliaryVerb', { person, tense: 'congiuntivo-presente', auxiliaryVerb: verb.auxiliary }); 
+      return auxVerb;     
     },
     async conjCongiuntivoTrapassato ({ dispatch }, { verb, person }) {
-      return await dispatch('getAuxiliaryVerb', { person, tense: 'congiuntivo-imperfetto', auxiliaryVerb: verb.auxiliary });      
+      let auxVerb = await dispatch('getAuxiliaryVerb', { person, tense: 'congiuntivo-imperfetto', auxiliaryVerb: verb.auxiliary });
+      return auxVerb;
     },
     async conjCondizionalePassato ({ dispatch }, { verb, person }) {
-      return await dispatch('getAuxiliaryVerb', { person, tense: 'condizionale-presente', auxiliaryVerb: verb.auxiliary });      
+      let auxVerb = await dispatch('getAuxiliaryVerb', { person, tense: 'condizionale-presente', auxiliaryVerb: verb.auxiliary });
+      return auxVerb;  
     },
     getVerbEnding ({ state }, { verb, tense, person }) {
       let ending = '';
       let isIrregular = false;
+      let isIre2 = false;
       
       let tenseName = state.rules[verb.infinitive][tense.name];
             
@@ -231,8 +231,20 @@ export default new Vuex.Store({
         isIrregular = true;
       }
 
+      //catch for ire2 verbs
+      if (
+        !isIrregular
+        && verb.infinitive === 'ire'
+        && (tense.name === 'congiuntivo-presente' || tense.name === 'indicativo-presente')
+        && [ 'a', 'e', 'i', 'o', 'u' ].includes(verb.base.slice(1, -1))
+        && [ 'io', 'tu', 'lui', 'loro' ].includes(person.name)
+      ) {
+        tenseName = state.rules['ire2'][tense.name];      
+        isIre2 = true;
+      }
+
       //Ending exception for Condizionale Presente
-      if (tense.name === 'condizionale-presente' && !isIrregular) {
+      if (tense.name === 'condizionale-presente' && !isIrregular && !isIre2) {
         let tempInfinitive = verb.infinitive;
         if (verb.infinitive === 'are') {
           tempInfinitive = 'ere';
@@ -259,7 +271,5 @@ export default new Vuex.Store({
       }
       return { isIrregular, ending };
     },
-  },
-  modules: {
   },
 });

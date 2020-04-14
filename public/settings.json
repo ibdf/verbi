@@ -196,17 +196,17 @@
       "condizionale-passato": "ito"
     },
     "ire2": {
-      "presente": {
-        "ire": {
-          "presente": {
-            "io": "isco",
-            "tu": "isci",
-            "lui": "isce",
-            "noi": "iamo",
-            "voi": "ite",
-            "loro": "iscono"
-          }
-        }
+      "indicativo-presente": {        
+        "io": "isco",
+        "tu": "isci",
+        "lui": "isce",            
+        "loro": "iscono"        
+      },
+      "congiuntivo-presente": {        
+        "io": "isca",
+        "tu": "isca",
+        "lui": "isca",            
+        "loro": "iscano"        
       }
     }
   },

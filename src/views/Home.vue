@@ -126,19 +126,17 @@ export default {
       }
       return verb;
     },
-    async start () {
-      console.log(this.selectedTenses);
+    async start () {      
       let settings = {
         selectedVerbs: this.selectedVerbs,
         selectedTenses: this.selectedTenses,
       };
       
-      let start = await this.$store.dispatch('startRun', settings);
-      console.log('start', start);
+      let start = await this.$store.dispatch('startRun', settings);      
 
       if (start) {
         this.conjugations = start;
-        // this.$router.push({ name: 'run' });
+        this.$router.push({ name: 'run' });
       } else {
         console.error('There was an issue starting');
       }

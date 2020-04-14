@@ -1,11 +1,15 @@
 <template>
-  <div class="card has-text-centered">
+  <div
+    v-if="verb"
+    class="card has-text-centered"
+  >
     <div class="card-content">
       <p class="title">
-        {{ verb.verb }}<span class="verb-ending">{{ verb.ending }}</span>
+        {{ verb }}
+        <!-- {{ verb.prefix }} {{ verb.prefix ? verb.person.name : verb.person.label }} {{ verb.auxiliary }} {{ verb.verb }}         -->
       </p>
       <p class="subtitle">
-        {{ verb.translation.english.join(', ') }}
+        <!-- {{ verb.translation.english.join(', ') }} -->
       </p>
     </div>
     <footer class="card-footer">
@@ -20,19 +24,28 @@
         </span>
       </p>
     </footer>
-  </div>
+  </div>  
 </template>
 
 <script>
+
+import { mapState, mapGetters } from 'vuex';
+
 export default {
   name: 'Card',
-  props: {
-    verb: {
-      type: Object,
-      default () {
-        return {};
-      },
-    },
+  // props: {
+  //   verb: {
+  //     type: Object,
+  //     default () {
+  //       return {};
+  //     },
+  //   },
+  // },
+  computed: {
+    ...mapState({}),
+    ...mapGetters({
+      verb: 'getCurrentRunVerb',
+    }),
   },
 };
 </script>

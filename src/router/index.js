@@ -1,21 +1,21 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
-// import Card from '../components/Card.vue';
+import Run from '../views/Run.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home,
   },
-  // {
-  //   path: '/card',
-  //   name: 'Card',
-  //   component: Card,
-  // },
+  {
+    path: '/rum',
+    name: 'run',
+    component: Run,
+  },
 ];
 
 const router = new VueRouter({

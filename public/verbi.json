@@ -934,5 +934,125 @@
         "loro": "escano"
       } 
     }     
+  },
+  {
+    "base": "fin",
+    "infinitive": "ire",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to finish"
+      ]
+    }
+  },
+  {
+    "base": "cap",
+    "infinitive": "ire",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to understand"
+      ]
+    }
+  },
+  {
+    "base": "ven",
+    "infinitive": "ire",
+    "auxiliary": "essere",
+    "translation": {
+      "english": [
+        "to come"        
+      ]
+    },
+    "irregularCases": {
+      "indicativo-presente": {                
+        "io": "vengo",
+        "tu": "vieni",
+        "lui": "viene",
+        "loro": "vengono"
+      },
+      "indicativo-passato-remoto": {                
+        "io": "venni",        
+        "lui": "venne",
+        "loro": "vennero"
+      },
+      "indicativo-futuro-semplice": {                
+        "io": "verrò",
+        "tu": "verrai",
+        "lui": "verrà",
+        "noi": "verremo",
+        "voi": "verrete",
+        "loro": "verranno"
+      },
+      "congiuntivo-presente": {
+        "io": "venga",
+        "tu": "venga",
+        "lui": "venga",                  
+        "loro": "vengano"
+      },
+      "condizionale-presente": {
+        "io": "verrei",
+        "tu": "verresti",
+        "lui": "verrebbe",  
+        "noi": "verremmo",
+        "voi": "verreste",              
+        "loro": "verrebbero"
+      },
+      "tempi-composti-passato-prossimo": "venuto",
+      "tempi-composti-trapassato-prossimo": "venuto",
+      "tempi-composti-trapassato-remoto": "venuto",
+      "tempi-composti-futuro-anteriore": "venuto",
+      "congiuntivo-passato": "venuto",
+      "congiuntivo-trapassato": "venuto",
+      "condizionale-passato": "venuto"
+    }     
+  },
+  {
+    "base": "vol",
+    "infinitive": "ere",
+    "auxiliary": "avere",
+    "translation": {
+      "english": [
+        "to want"        
+      ]
+    },
+    "irregularCases": {
+      "indicativo-presente": {                
+        "io": "voglio",
+        "tu": "vuoi",
+        "lui": "vuole",
+        "noi": "vogliamo",
+        "loro": "vogliono"
+      },
+      "indicativo-passato-remoto": {                
+        "io": "volli",        
+        "lui": "volle",
+        "loro": "vollero"
+      },
+      "indicativo-futuro-semplice": {                
+        "io": "vorrò",
+        "tu": "vorrai",
+        "lui": "vorrà",
+        "noi": "vorremo",
+        "voi": "vorrete",
+        "loro": "vorranno"
+      },
+      "congiuntivo-presente": {
+        "io": "voglia",
+        "tu": "voglia",
+        "lui": "voglia",  
+        "noi": "vogliamo",
+        "voi": "vogliate",               
+        "loro": "vogliano"
+      },
+      "condizionale-presente": {
+        "io": "vorrei",
+        "tu": "vorresti",
+        "lui": "vorrebbe",  
+        "noi": "vorremmo",
+        "voi": "vorreste",              
+        "loro": "vorrebbero"
+      }      
+    }     
   }
 ]
